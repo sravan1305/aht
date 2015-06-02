@@ -1722,5 +1722,43 @@ foreach($allthread as $i=>$row){
  </li>
 <?php
  }
+ public static function disp_myassign_top_menu(){
+?>
+            <div id="block-quicktabs-sidebar-tabs" class="block block-quicktabs clearfix">
+             <div class="content">
+              <div id="quicktabs-sidebar_tabs" class="quicktabs-wrapper quicktabs-style-nostyle jquery-once-1-processed">
+
+               <div class="item-list">
+
+                <ul class="quicktabs-tabs quicktabs-style-nostyle">
+                <?php
+                $inp=array();
+                if(User::isloginas('u')){
+	                	$inp=array('list'=>array("myassignments.php?list=current"=>"Current Assignment","myassignments.php?list=myassign"=>"My Assignment"));
+ 																	$inp["list"]["submitnew.php"]="Submit New Assignment";
+              	 }
+              	 else{
+              	 		$inp=array("list"=>array("myassignments.php?list=current"=>"Current Assignment","myassignments.php?list=myassign"=>"My Assignment"));
+              	 }
+                foreach($inp["list"] as $id=>$name){
+                ?>
+                <li class="<?php echo ""; ?>" style="list-style-type: none;" >
+                <a  class="active quicktabs-loaded jquery-once-2-processed" href="<?php echo $id; ?>" >
+                <?php echo $name; ?>
+                </a>
+                </li>
+                <?php
+                }
+                ?>
+                <li style="list-style-type:none;" >
+                  <a>&nbsp;</a>
+                </li>
+                </ul>
+                 </div>
+               </div>
+              </div>
+            </div>
+<?php 	
+ }
 }
 ?>

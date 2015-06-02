@@ -62,39 +62,11 @@ Disps::page_top2();
              </div>
              <div class="views-row views-row-1 views-row-odd views-row-first col-sm-9 col-md-9" align="left" >
 
-            <div id="block-quicktabs-sidebar-tabs" class="block block-quicktabs clearfix">
-             <div class="content">
-              <div id="quicktabs-sidebar_tabs" class="quicktabs-wrapper quicktabs-style-nostyle jquery-once-1-processed">
-
-               <div class="item-list">
-
-                <ul class="quicktabs-tabs quicktabs-style-nostyle">
-                <?php
-                $inp=array('list'=>array("myassignments.php?list=current"=>"Current Assignment","myassignments.php?list=myassign"=>"My Assignment"));
-                if(User::isloginas('u'))
-                  $inp["list"]["submitnew.php"]="Submit New Assignment";
-                foreach($inp["list"] as $id=>$name){
-                ?>
-                <li class="<?php echo ""; ?>" style="list-style-type: none;" >
-                <a  class="active quicktabs-loaded jquery-once-2-processed" href="<?php echo $id; ?>" >
-                <?php echo $name; ?>
-                </a>
-                </li>
-                <?php
-                }
-                ?>
-                <li style="list-style-type:none;" >
-                  <a>&nbsp;</a>
-                </li>
-                </ul>
-                 </div>
-               </div>
-              </div>
-            </div>
 
 
 
                <?php
+               Disps::disp_myassign_top_menu();
           $assign_table=new Table(array('params'=>array('class'=>'table-hover table-bordered table p10px ')));
 
 
